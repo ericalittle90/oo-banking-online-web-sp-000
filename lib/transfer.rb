@@ -25,7 +25,8 @@ class Transfer
   end
 
   def reverse_transfer
+    if (self.status == "complete")
     self.execute_transaction.reverse
   end
-
+end
 end
