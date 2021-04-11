@@ -1,12 +1,12 @@
 class Transfer
 
-  attr_accessor :sender, :receiver, :status, :transfer_amount
+  attr_accessor :sender, :receiver, :status, :amount
 
-  def initialize(sender, receiver, status = "pending", transfer_amount)
+  def initialize(sender, receiver, status = "pending", amount)
     @sender = sender
     @receiver = receiver
     @status = status
-    @transfer_amount = transfer_amount
+    @amount = amount
   end
 
   def valid?
@@ -14,9 +14,9 @@ class Transfer
   end
 
   def execute_transaction
-    if ((self.valid?) && (self.status == "pending") && (self.sender.balance >= self.transfer_amount))
-      self.sender.balance -= self.transfer_amount
-      self.receiver.balance += self.transfer_amount
+    if ((self.valid?) && (self.status == "pending") && (self.sender.balance >= self.amount))
+      self.sender.balance -= self.amount
+      self.receiver.balance += self.amount
       self.status = "complete"
     else
         self.status = "rejected"
