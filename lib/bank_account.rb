@@ -8,4 +8,8 @@ class BankAccount
     @balance = 1000
   end
 
+  def deposit
+    
+  end 
+
 end
